@@ -1,0 +1,75 @@
+
+using System;
+
+using System.Collections.Generic;
+
+using System.Linq;
+
+using System.Web;
+
+using System.Web.UI;
+
+using System.Web.UI.WebControls;
+
+
+
+namespace solveMaze
+
+{
+
+    public partial class AdminHome : System.Web.UI.Page
+
+    {
+
+        protected void Page_Load(object sender, EventArgs e)
+
+        {
+        //Retrieve Input @InputString
+        //Create string array @OriginalMap
+        //Move @InputString to @OriginalMap, split on carriage return
+        //Find position of startpoint @ARow, @AColumn and endpoint @BRow, @BColumn
+        //Create count @Count = 0
+        //--Loop through each value @Row in @OriginalMap
+        //--Increment @Count        
+        //--IF @Row.Contains("A") THEN SET @ARow = @Count, @AColumn = @Row.IndexOf("A")
+        //--IF @Row.Contains("B") THEN SET @BRow = @Count, @BColumn = @@Row.IndexOf("B")
+        
+        //Create string array @SolutionMaps
+        //Create @ReturnIntersection = 999
+        //Create @CurrRowNum = @ARow, @CurrColNum = @AColumn, @CurrRow = @OriginalMap(@ARow)
+        //@While @ReturnIntersection != -1
+        //IF FindChar(@CurrRow,@CurrCol,"B") == ""
+        //--IF @CurrRow.Length > @currColNum
+        //----IF @CurrRow.Substring(@CurrColNum + 1,1) == "."
+        
+        //Loop
+        
+
+
+
+        }
+        //return an integer identifying what direction chr is, x for not found, u for up, d for down, r for right, l for left
+        private function FindChar(ByVal @row as Int, ByVal @col as Int, ByVal @chr as CHAR) as String
+        {
+          Dim @up as Boolean = True
+          Dim @down as Boolean = True
+          Dim @right as Boolean = True
+          Dim @left as Boolean = True
+          Dim @rval as String = ""
+          
+          Dim @strRow as String = @OriginalMap(@row)
+          IF @row = 0 || @OriginalMap(@row-1).Substring(@col,1) != @hr Then @up = False
+          IF @row = @OriginalMap.Length - 1 || @OriginalMap(@row+1).Substring(@col,1) != chr Then @down = False
+          IF @col = 0 || @strRow.Substring(@col-1,1) != chr Then @left = False
+          IF @col = @strRow.Length - 1 || @strRow.Substring(@col+1,1) != chr Then @right = False
+          
+          IF @up Then rval = rval & "u"
+          IF @down Then  rval = rval & "d"
+          IF @left Then  rval = rval & "l"
+          IF @right Then  rval = rval & "r"         
+          Return rval;      
+        }
+
+    }
+
+}
